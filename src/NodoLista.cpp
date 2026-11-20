@@ -1,6 +1,6 @@
 #include "NodoLista.h"
 
-NodoLista::NodoLista()
+NodoLista::NodoLista(Venta v, NodoLista *sig)
 {
     valor = v;
     siguiente = sig;

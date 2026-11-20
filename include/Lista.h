@@ -11,14 +11,14 @@ public:
     Lista();
     ~Lista();
 
-    void insertarNodo(int v);
+    void insertarNodo(std::string id_venta);
     void borrarNodo(int v);
     bool listaVacia();
     void esCabeza();
     void esFinal();
     void esSiguiente();
     bool esActual();
-    int valorActual();
+    Venta valorActual();
     void recorrerLista();
 };
 

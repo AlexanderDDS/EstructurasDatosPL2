@@ -6,7 +6,7 @@
 class NodoLista
 {
 private:
-    int valor;
+    Venta valor;
     NodoLista *siguiente;
     friend class Lista;
 

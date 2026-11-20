@@ -19,49 +19,54 @@ Lista::~Lista()
     actual = NULL;
 }
 
-void Lista::insertarNodo(int v)
+void Lista::insertarNodo(Venta v)
 {
     pnodo aux;
 
     if (listaVacia())
     {
         cabeza = new NodoLista(v, NULL);
-        final=cabeza;
+        final = cabeza;
     }
     else
     {
-        aux= new NodoLista(v,NULL);
-        final->siguiente=aux;
-        final=aux;
+        aux = new NodoLista(v, NULL);
+        final->siguiente = aux;
+        final = aux;
     }
 }
 
-void Lista::borrarNodo(int v)
+void Lista::borrarNodo(string id_venta)
 {
-    pnodo anterior;
+    if (listaVacia()) return;
 
+    pnodo anterior = NULL;
     actual = cabeza;
 
-    while (actual->valor!=v && (actual->siguiente)!=NULL)
+    while (actual->valor.id_venta != id_venta && (actual->siguiente) != NULL)
     {
-        anterior=actual;
-        actual=actual->siguiente;
+        anterior = actual;
+        actual = actual->siguiente;
     }
 
-    if (actual->valor == v)  //comprobación de que está v en la lista
+    if (actual->valor.id_venta == id_venta)
     {
-        if(actual==cabeza)
+        if (actual == cabeza)
+        {
             cabeza = actual->siguiente;
+            if (cabeza == NULL) final = NULL;
+        }
         else
         {
             anterior->siguiente = actual->siguiente;
-            if (actual==final)
+            if (actual == final)
             {
-                final=anterior;
+                final = anterior;
             }
         }
-        actual->siguiente=NULL;
+        actual->siguiente = NULL;
         delete actual;
+        actual = NULL;
     }
 }
 
